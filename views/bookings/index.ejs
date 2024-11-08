@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate") %>
+<div class="container mt-5">
+    <h2>Your Bookings</h2>
+    <hr>
+
+    <% if (bookings.length === 0) { %>
+        <p>You have not made any bookings yet.</p>
+    <% } else { %>
+        <div class="row">
+            <% bookings.forEach(booking => { %>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="<%= booking.listing.image.url %>" class="card-img-top" alt="<%= booking.listing.title %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= booking.listing.title %></h5>
+                            <p class="card-text">
+                                Location: <%= booking.listing.location %><br>
+                                Price: &#x20B9; <%= booking.listing.price %><br>
+                                Status: <%= booking.status %><br>
+                                Booking Date: <%= booking.bookingDate.toDateString() %>
+                            </p>
+                            <a href="/listings/<%= booking.listing._id %>" class="btn btn-primary">View Listing</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } %>
+</div>

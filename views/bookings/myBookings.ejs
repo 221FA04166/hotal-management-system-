@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-2">
+    <div class="col-8 offset-2">
+        <h3>My Bookings</h3>
+        <% if (bookings.length === 0) { %>
+            <p>You have no bookings yet.</p>
+        <% } else { %>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Listing Title</th>
+                        <th>Booking Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% bookings.forEach(booking => { %>
+                        <tr>
+                            <td><%= booking.listing.title %></td>
+                            <td><%= booking.bookingDate.toLocaleDateString() %></td>
+                            <td><%= booking.status %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</div>
+<script src="/js/script.js"></script>

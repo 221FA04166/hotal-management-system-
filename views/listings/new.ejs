@@ -1,0 +1,45 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-2">
+    <div class="col-8 offset-2">
+        <br>
+        <h1>Create a New Listing</h1><br>
+        <form method="POST" action="/listings" novalidate class="needs-validation"> 
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input name="listing[title]" placeholder="Add a catchy title" class="form-control" required>
+                <div class="valid-feedback">Title looks good</div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listing[description]" class="form-control" required></textarea>
+                <div class="valid-feedback">Discription is good</div>
+
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image URL</label>
+                <input type="text" name="listing[image][url]" placeholder="Enter URL/Link" class="form-control">
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" name="listing[price]" placeholder="1200" class="form-control" required>
+                    <div class="invalid-feedback">Price should be valid</div>
+
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="listing[country]" placeholder="India" class="form-control" required>
+                    <div class="invalid-feedback">Country should be valid</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" name="listing[location]" placeholder="Bettiah" class="form-control" required>
+                <div class="invalid-feedback">invalid Location</div>
+            </div>
+
+            <input type="submit" value="Add" class="btn btn-dark add-btn mt-2">
+            <br/><br/>
+        </form>
+    </div>
+</div>
